@@ -1,12 +1,36 @@
 nav {
   height: 120px;
-  width:100vp;
+  width:100vw;
   background-color: #4056A1;
   color: #FFFFFF;  
+  padding: 0 1.5em;  
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 span {
   font-family:'Bungee', cursive;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+  
 }
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-content p {
+  margin: 0; /* Remove default margin from the paragraph */
+}
+
+/* Additional styles for the icon */
+.fa-solid.fa-angles-down {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+
+
+
+
