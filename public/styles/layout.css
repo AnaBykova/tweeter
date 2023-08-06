@@ -21,6 +21,14 @@ body {
   font-size: 24px;
 }
 
+main {
+  width: 90%;
+  margin: 0 auto; /* This will center align the <main> element */
+  display: flex;
+  align-items: center;
+  background-color: #f4f1ec;
+}
+
 
 
 /*
