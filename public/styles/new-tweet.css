@@ -1,0 +1,50 @@
+.new-tweet {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+#tweet-form{
+  width: 100%;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px; /* Add some space between the label and the textarea */
+}
+
+#tweet-text {
+  width: 100%;
+  border: none;
+  border-bottom: 5px solid black;
+  background-color: #f4f1ec;
+  /*opacity: 0.5;*/
+  position: relative;
+  z-index: 1;
+}
+
+.textarea-label {
+  position: absolute;  
+  z-index: 2;
+}
+
+.button-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-tweet-button {
+  background-color: #4056A1;
+  color: #FFFFFF;  
+  font-family:'Bungee', cursive;
+}
+
+.counter {
+  font-family:'Bungee', cursive;
+}
