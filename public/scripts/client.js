@@ -20,33 +20,6 @@ console.log("Document is ready!");
 
 $(document).ready(function() {
 
-/*
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-*/
-
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
@@ -91,28 +64,35 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
-//renderTweets(data);
-
-
 // Add an event listener to the tweet submission form
 $("#tweet-form").submit(function(event) {
   event.preventDefault();
 
-  const formData = $(this).serialize();
+  const tweetContent = $("#tweet-text").val(); // Get the tweet content from the form
 
+    // Validate the tweet content
+    if (!tweetContent) {
+      alert("Tweet content cannot be empty.");
+    } else if (tweetContent.length > 140) {
+      alert("Tweet is too long. Please make it 140 characters or less.");
+    } else {
+      const formData = $(this).serialize();
+    
   // Send a POST request to the server
-  $.post("/tweets", formData)
-    .then(function(tweet) {
-      console.log("Tweet submitted successfully:", tweet);
-      loadTweets();      
-    })
-    .catch(function(error) {
-      console.error("Error submitting tweet:", error);
-    });
+    $.post("/tweets", formData)
+      .then(function(tweet) {
+        console.log("Tweet submitted successfully:", tweet);
+        loadTweets();      
+      })
+      .catch(function(error) {
+        console.error("Error submitting tweet:", error);
+      });
+    }
+
 });
 
 const loadTweets = function() {
-  $.get("/tweets") // Send a GET request to /tweets
+  $.get("/tweets")
     .then(function(tweets) {
       renderTweets(tweets);
     })
