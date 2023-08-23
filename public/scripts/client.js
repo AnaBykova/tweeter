@@ -20,6 +20,7 @@ console.log("Document is ready!");
 
 $(document).ready(function() {
 
+/*
 const data = [
   {
     "user": {
@@ -44,7 +45,7 @@ const data = [
     "created_at": 1461113959088
   }
 ];
-
+*/
 
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
@@ -90,13 +91,12 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
-renderTweets(data);
+//renderTweets(data);
 
-//////
+
 const loadTweets = function() {
   $.get("/tweets") // Send a GET request to /tweets
     .then(function(tweets) {
-      // Once you receive the tweets array from the server, render them on the page
       renderTweets(tweets);
     })
     .catch(function(error) {
@@ -117,16 +117,13 @@ $("#tweet-form").submit(function(event) {
   $.post("/tweets", formData)
     .then(function(tweet) {
       console.log("Tweet submitted successfully:", tweet);
-      
-      // Reload the tweets to display the new tweet
-      loadTweets();
-      //const $tweet = createTweetElement(tweet);
-      //$('#tweets-container').prepend($tweet); // Prepend to show the latest tweet on top
+      loadTweets();      
     })
     .catch(function(error) {
       console.error("Error submitting tweet:", error);
     });
 });
+
 
 });
 
