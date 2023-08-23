@@ -23,7 +23,6 @@ $(document).ready(function() {
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    console.log($tweet);
     $('#tweets-container').append($tweet);
   }
 }
@@ -64,6 +63,19 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
+const loadTweets = function() {
+  $.get("/tweets")
+    .then(function(tweets) {
+      const reversedTweets = tweets.reverse(); // Reverse the order of tweets
+      renderTweets(reversedTweets);
+    })
+    .catch(function(error) {
+      console.error("Error loading tweets:", error);
+    });
+};
+
+//loadTweets();
+
 // Add an event listener to the tweet submission form
 $("#tweet-form").submit(function(event) {
   event.preventDefault();
@@ -82,7 +94,8 @@ $("#tweet-form").submit(function(event) {
     $.post("/tweets", formData)
       .then(function(tweet) {
         console.log("Tweet submitted successfully:", tweet);
-        loadTweets();      
+        loadTweets();
+        $("#tweet-text").val(""); // Clear the textarea after successful tweet submission    
       })
       .catch(function(error) {
         console.error("Error submitting tweet:", error);
@@ -91,17 +104,7 @@ $("#tweet-form").submit(function(event) {
 
 });
 
-const loadTweets = function() {
-  $.get("/tweets")
-    .then(function(tweets) {
-      renderTweets(tweets);
-    })
-    .catch(function(error) {
-      console.error("Error loading tweets:", error);
-    });
-};
 
-loadTweets();
 
 });
 
