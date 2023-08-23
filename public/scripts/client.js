@@ -45,6 +45,7 @@ const data = [
   }
 ];
 
+
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
@@ -91,6 +92,20 @@ const createTweetElement = function(tweet) {
 
 renderTweets(data);
 
+//////
+const loadTweets = function() {
+  $.get("/tweets") // Send a GET request to /tweets
+    .then(function(tweets) {
+      // Once you receive the tweets array from the server, render them on the page
+      renderTweets(tweets);
+    })
+    .catch(function(error) {
+      console.error("Error loading tweets:", error);
+    });
+};
+
+loadTweets();
+
 
 // Add an event listener to the tweet submission form
 $("#tweet-form").submit(function(event) {
@@ -103,6 +118,8 @@ $("#tweet-form").submit(function(event) {
     .then(function(tweet) {
       console.log("Tweet submitted successfully:", tweet);
       
+      // Reload the tweets to display the new tweet
+      loadTweets();
       //const $tweet = createTweetElement(tweet);
       //$('#tweets-container').prepend($tweet); // Prepend to show the latest tweet on top
     })
