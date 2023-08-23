@@ -77,7 +77,7 @@ const createTweetElement = function(tweet) {
       <footer class="tweet-div">
         <div class="tweet-div">
           <div class="timestamp">
-            <p>Posted ${tweet.created_at}</p>
+            <p>Posted ${timeago.format(tweet.created_at)}</p>
           </div>
           <div class="div-group">
             <div class="actions"><i class="fa-solid fa-flag"></i></div>
@@ -92,19 +92,6 @@ const createTweetElement = function(tweet) {
 }
 
 //renderTweets(data);
-
-
-const loadTweets = function() {
-  $.get("/tweets") // Send a GET request to /tweets
-    .then(function(tweets) {
-      renderTweets(tweets);
-    })
-    .catch(function(error) {
-      console.error("Error loading tweets:", error);
-    });
-};
-
-loadTweets();
 
 
 // Add an event listener to the tweet submission form
@@ -124,6 +111,17 @@ $("#tweet-form").submit(function(event) {
     });
 });
 
+const loadTweets = function() {
+  $.get("/tweets") // Send a GET request to /tweets
+    .then(function(tweets) {
+      renderTweets(tweets);
+    })
+    .catch(function(error) {
+      console.error("Error loading tweets:", error);
+    });
+};
+
+loadTweets();
 
 });
 
