@@ -20,12 +20,18 @@ console.log("Document is ready!");
 
 $(document).ready(function() {
 
-const renderTweets = function(tweets) {
-  for (const tweet of tweets) {
-    const $tweet = createTweetElement(tweet);
-    $('#tweets-container').append($tweet);
+  const escape = function(str) {
+    const div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  const renderTweets = function(tweets) {
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $('#tweets-container').append($tweet);
+    }
   }
-}
 
 const createTweetElement = function(tweet) {
   const $tweet = $(`
@@ -33,23 +39,23 @@ const createTweetElement = function(tweet) {
       <header class="tweet-div">
         <div class="tweet-div">
           <div class="div-group">
-            <div class="profile-image"><img src="${tweet.user.avatars}" alt="user's profile photo"></div>
-            <div><p>${tweet.user.name}</p></div>
+            <div class="profile-image"><img src="${escape(tweet.user.avatars)}" alt="user's profile photo"></div>
+            <div><p>${escape(tweet.user.name)}</p></div>
           </div>
           <div class="user-email">
-            <p>${tweet.user.handle}</p>
+            <p>${escape(tweet.user.handle)}</p>
           </div>
         </div>
       </header>
 
       <div class="user-tweets">
-        <p class="user-tweets-text">${tweet.content.text}</p>
+        <p class="user-tweets-text">${escape(tweet.content.text)}</p>
       </div>
       
       <footer class="tweet-div">
         <div class="tweet-div">
           <div class="timestamp">
-            <p>Posted ${timeago.format(tweet.created_at)}</p>
+            <p>Posted ${escape(timeago.format(tweet.created_at))}</p>
           </div>
           <div class="div-group">
             <div class="actions"><i class="fa-solid fa-flag"></i></div>
@@ -82,15 +88,16 @@ $("#tweet-form").submit(function(event) {
 
   const tweetContent = $("#tweet-text").val(); // Get the tweet content from the form
 
-    // Validate the tweet content
     if (!tweetContent) {
-      alert("Tweet content cannot be empty.");
+      $(".error-message").text("Tweet content cannot be empty.").show();
     } else if (tweetContent.length > 140) {
-      alert("Tweet is too long. Please make it 140 characters or less.");
-    } else {
+      $(".error-message").text("Tweet is too long. Please make it 140 characters or less.").show();
+    } else {      
+      $(".error-message").hide(); // Clear any previous error messages
+
       const formData = $(this).serialize();
     
-  // Send a POST request to the server
+    // Send a POST request to the server
     $.post("/tweets", formData)
       .then(function(tweet) {
         console.log("Tweet submitted successfully:", tweet);
