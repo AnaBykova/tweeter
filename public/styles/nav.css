@@ -1,3 +1,5 @@
+/*LARGE & MEDIUM*/
+@media (min-width: 768px) {
 nav {
   height: 120px;
   width:100vw;
@@ -8,11 +10,11 @@ nav {
   justify-content: space-between; 
   align-items: center; 
   position: fixed;
+  top: 0;
 }
 
 span {
-  font-family:'Bungee', cursive;
-  
+  font-family:'Bungee', cursive;  
 }
 
 .nav-content {
@@ -30,6 +32,68 @@ span {
   display: inline-block;
   vertical-align: middle;
   margin-left: 5px;
+  color: red;
+  animation: moveUpDown 1s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+}
+
+/*SMALL*/
+@media (max-width: 767px) {
+  nav {
+    height: 120px;
+    width:100vw;
+    background-color: #F79327;
+    color: #FFFFFF;  
+    padding: 0 1.5em;  
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: fixed;
+    background-image: url("/images/asfalt-light.png");
+  }
+  
+  span {
+    font-family:'Bungee', cursive;
+    
+  }
+  
+  .nav-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .nav-content p {
+    margin: 0; /* Remove default margin from the paragraph */
+  }
+  
+  /* Additional styles for the icon */
+  .fa-solid.fa-angles-down {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5px;
+    color: red;
+    animation: moveUpDown 1s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
 }
 
 

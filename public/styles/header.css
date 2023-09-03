@@ -1,22 +1,62 @@
-.header-main {
-  height: 520px;
-  background-color:#F79327;
-  width:100%;
-  flex-direction: column;
-  align-items: center;
-  background-image: url("/images/asfalt-light.png");
+/* MEDIUM & LARGE SCREEN (768px and above) */
+@media (min-width: 768px) {
+  .main-layout{
+    display: flex;
+    margin-top: 200px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .header-main {
+    height: 520px;
+    background-color:#F79327;
+    width:50%;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/images/asfalt-light.png");   
+    margin-right: 40px;
+  }
+
+  .header-image{
+    padding-top: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-name {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: white;
+  }
 }
 
-.header-image{
-  padding-top: 130px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/*SMALL SCREEN*/
+@media (max-width: 767px) {
 
-.header-name {
-  display: flex;
-  justify-content: center;
-  align-items:center;  
-}
+  .header-main {
+    height: 520px;
+    background-color:#F79327;
+    width:100%;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/images/asfalt-light.png");
+    margin-bottom: 40px;
+  }
+  
+  .header-image{
+    padding-top: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .header-name {
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+    color: white;
+  }
 
+}
