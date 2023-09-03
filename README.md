@@ -19,5 +19,5 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Desktop page"](https://github.com/AnaBykova/tinyapp/blob/master/docs/url-page.PNG)
-!["Mobile page"](https://github.com/AnaBykova/tinyapp/blob/master/docs/login-page.PNG)
+!["Desktop page"](public/images/Large screen.PNG)
+!["Mobile page"](public/images/Mobile screen.PNG)
