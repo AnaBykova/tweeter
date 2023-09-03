@@ -1,5 +1,5 @@
 /* MEDIUM & LARGE SCREEN (768px and above) */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
 #tweets-container {
   margin-top: 50px;
@@ -88,7 +88,7 @@ article:hover {
 }
 
 /*SMALL SCREEN*/
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
 
   #tweets-container {
     margin-top: 50px;

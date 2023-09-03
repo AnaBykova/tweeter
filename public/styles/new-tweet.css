@@ -1,11 +1,12 @@
 /* MEDIUM & LARGE SCREEN (768px and above) */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
 
 .container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-left: 40px;
+  width: 90%;
 }
 
 .error-message {
@@ -75,7 +76,7 @@
 }
 
 /*SMALL SCREEN*/
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .container {
     flex-direction: column;
     align-items: center;

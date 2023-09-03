@@ -1,5 +1,5 @@
 /* MEDIUM & LARGE SCREEN (768px and above) */
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .main-layout{
     display: flex;
     margin-top: 200px;
@@ -33,7 +33,7 @@
 }
 
 /*SMALL SCREEN*/
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
 
   .header-main {
     height: 520px;
