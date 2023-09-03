@@ -17,7 +17,7 @@ This repository is the starter code for the project: Students will fork and clon
 - Express
 - Node 5.10.x or above
 
-## Final Product
+## Screenshots
 
 !["Desktop page"](https://github.com/AnaBykova/tweeter/blob/master/public/images/Large%20screen.PNG?raw=true)
 !["Mobile page"](https://github.com/AnaBykova/tweeter/blob/master/public/images/Mobile%20screen.PNG?raw=true)
