@@ -89,7 +89,7 @@ loadTweets();
 $("#tweet-form").submit(function(event) {
   event.preventDefault();
 
-  const tweetContent = $("#tweet-text").val(); // Get the tweet content from the form
+  const tweetContent = $("#tweet-text").val().trim(); // Get the tweet content from the form
 
     if (!tweetContent) {
       $(".error-message").text("Tweet content cannot be empty.").show();
