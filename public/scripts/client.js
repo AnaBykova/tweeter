@@ -19,6 +19,7 @@ to the caller
 console.log("Document is ready!");
 
 $(document).ready(function() {
+  let lastTweetId = null;
 
   const escape = function(str) {
     const div = document.createElement('div');
@@ -29,7 +30,7 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       const $tweet = createTweetElement(tweet);
-      $('#tweets-container').append($tweet);
+      $('#tweets-container').prepend($tweet);
     }
   }
 
@@ -69,18 +70,20 @@ const createTweetElement = function(tweet) {
   return $tweet;
 }
 
+
+
 const loadTweets = function() {
   $.get("/tweets")
     .then(function(tweets) {
-      const reversedTweets = tweets.reverse(); // Reverse the order of tweets
-      renderTweets(reversedTweets);
+      $("#tweets-container").empty(); // Clear the existing tweets
+      renderTweets(tweets); // Append the new tweets
     })
     .catch(function(error) {
       console.error("Error loading tweets:", error);
     });
 };
 
-//loadTweets();
+loadTweets();
 
 // Add an event listener to the tweet submission form
 $("#tweet-form").submit(function(event) {
