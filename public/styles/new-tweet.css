@@ -45,15 +45,8 @@
   background-color: #f4f1ec;
   font-weight: bold;
   font-size: 20px;
-  /*position: relative;
-  z-index: 1;*/
+  overflow-wrap: break-word; 
 }
-
-/*
-.textarea-label {
-  position: absolute;  
-  z-index: 2;
-}*/
 
 .button-container{
   display: flex;
@@ -122,15 +115,8 @@
     background-color: #f4f1ec;
     font-weight: bold;
     font-size: 20px;
-    /*position: relative;
-    z-index: 1;*/
+    overflow-wrap: break-word; 
   }
-  
-  /*
-  .textarea-label {
-    position: absolute;  
-    z-index: 2;
-  }*/
   
   .button-container{
     display: flex;
